@@ -121,6 +121,46 @@
           }
         }
       }
+    },
+    "SecureFeatureLibrary": {
+      "root": "projects/secure-feature-library",
+      "sourceRoot": "projects/secure-feature-library/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/secure-feature-library/tsconfig.lib.json",
+            "project": "projects/secure-feature-library/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/secure-feature-library/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/secure-feature-library/src/test.ts",
+            "tsConfig": "projects/secure-feature-library/tsconfig.spec.json",
+            "karmaConfig": "projects/secure-feature-library/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/secure-feature-library/tsconfig.lib.json",
+              "projects/secure-feature-library/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "SecureAngularLibrary"
