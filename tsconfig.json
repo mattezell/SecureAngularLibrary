@@ -24,5 +24,8 @@
         "dist/secure-feature-library/*"
       ]
     }
-  }
+  },
+  "exclude": [
+    "dist"
+  ]
 }
